@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Board: {{board_info.name}}{% endblock %}
+
+{% block content %}
+<h1>{{board_info.name}}</h1><br>
+<p>{{board_info.created_at}}</p>
+<p>
+    {{board_info.description}}
+</p>
+
+<br>
+<br>
+
+<h2>Thread List</h2>
+<ul>
+    {% for thread_info in child_thread_infos %}
+    <li><a href="/thread/{{thread_info.uuid}}">{{ thread_info.title}}</a> {{thread_info.created_at}} By <a
+            href="/user/{{thread_info.creator_user_id}}">{{thread_info.creator_user_id}}</a></li>
+    <br>
+    {% endfor %}
+</ul>
+
+<br>
+<br>
+
+<h3>Create New Thread</h3>
+<form action="/thread_creation" method="post">
+    <label for="id">Thread Title:</label><br>
+    <input type="text" name="title"><br>
+    <label for="post">Post:</label><br>
+    <textarea name="post"></textarea><br>
+    <input type="hidden" name="parent_board_uuid" value="{{board_info.uuid}}">
+    <input type="submit" value="Create New Thread">
+</form>
+{% endblock %}

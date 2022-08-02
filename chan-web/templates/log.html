@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Log{% endblock %}
+
+{% block content %}
+<h1>Log</h1>
+<div id="log-list">
+    <ul>
+        {% for log in logs %}
+        <li> {{log.timestamp}}<br>{{log.message}} (<a href="{{log.link}}">{{ log.link_title }}</a>)</li>
+        <br>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

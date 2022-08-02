@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}System Info{% endblock %}
+
+{% block content %}
+<h1>System Info</h1>
+
+<h2>Memory</h2>
+Total: {{system_info.total_mem_available}} MB
+Free: {{system_info.free_mem}} MB
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Manage{% endblock %}
+
+{% block content %}
+<h1>Manage</h1>
+Only for admin and moderators.<br>
+But it's intended to visible to all users.<br>
+
+<h3>Remove ThreadPost</h3>
+<form action="/threadpost_removal" method="post">
+    <label for="threadpost_uuid">ThreadPost UUID:</label><br>
+    <input type="text" id="threadpost_uuid" name="threadpost_uuid"><br>
+    <input type="submit" value="Remove">
+</form>
+
+<h3>Remove Thread</h3>
+<form action="/thread_removal" method="post">
+    <label for="thread_uuid">Thread UUID:</label><br>
+    <input type="text" id="thread_uuid" name="thread_uuid"><br>
+    <input type="submit" value="Remove">
+</form>
+
+<h3>Change User Type</h3>
+<form action="/user_type_change" method="post">
+    <label for="user_id">User ID:</label><br>
+    <input type="text" id="user_id" name="user_id">
+    <label for="new_type">Type:</label><br>
+    <select name="new_type" id="new_type">
+        <option value="2">Moderator</option>
+        <option value="3">Normal User</option>
+    </select>
+</form>
+{% endblock %}

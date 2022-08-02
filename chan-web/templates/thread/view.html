@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Thread: {{thread_info.title}}{% endblock %}
+
+{% block content %}
+<h1>Title: {{thread_info.title}}</h1><br>
+<p>CreatedBy: <a href="/user/{{thread_info.creator_user_id}}">{{thread_info.creator_user_id}}</a></p>
+
+Thread Posts
+<ul>
+    {% for threadpost in threadposts %}
+    <li><a href="/user/{{threadpost.poster_user_id}}">{{ threadpost.poster_user_id}}</a><br>
+        #{{threadpost.number}}<br>
+        At: {{threadpost.posted_at}}<br>
+        body:<br>
+        {{threadpost.body_text}}
+    </li>
+    <br>
+    {% endfor %}
+</ul>
+
+
+
+Show Range
+<form action="/thread_view_range" method="post">
+    <label for="l">L:</label><br>
+    <input type="number" name="l"><br>
+    <label for="r">R:</label><br>
+    <input type="number" name="r"><br>
+    <input type="hidden" name="thread_uuid" value="{{thread_info.uuid}}">
+    <input type="submit" value="Show">
+</form>
+<br>
+Post
+<form action="/threadpost_creation" method="post">
+    <label for="post">Post Body:</label><br>
+    <textarea name="post"></textarea><br>
+    <input type="hidden" name="parent_thread_uuid" value="{{thread_info.uuid}}">
+    <input type="submit" value="Post">
+</form>
+
+{% endblock %}

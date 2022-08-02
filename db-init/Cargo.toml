@@ -1,0 +1,13 @@
+[package]
+name = "db-init"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+chan-core={path="../chan-core"}
+dotenv = "0.15.0"
+diesel = { version="1.4.8", features = ["postgres","r2d2","chrono","uuidv07"] }
+anyhow = "1.0.56"

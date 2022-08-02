@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Board List{% endblock %}
+
+{% block content %}
+<h1>Board List</h1>
+<div id="board-list">
+  <ul>
+    {% for board_info in board_infos %}
+    <li><a href="/board/{{board_info.uuid}}">{{ board_info.name }}</a> {{board_info.description}}</li>
+    <br>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

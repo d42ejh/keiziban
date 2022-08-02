@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}SearchResult{% endblock %}
+
+{% block content %}
+<h2>SearchResult</h2>
+<ul>
+    {% for search_result in search_results %}
+    <li>
+        {{search_result.score}} {{search_result.object_type}}
+        {% if search_result.object_type == "thread_uuid" %}
+        <a href="/thread/{{search_result.uuid}}">Thread</a>
+
+        {% else if search_result.object_type =="threadpost_uuid" -%}
+        threadpost uuid
+        {% endif %}
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

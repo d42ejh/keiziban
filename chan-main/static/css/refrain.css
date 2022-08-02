@@ -1,0 +1,122 @@
+#menu-bar {
+  background-color: rgba(245, 245, 245, 0.253);
+}
+
+#menu-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  /* border: 2px solid #1010918e; */
+
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  /* background-color: blueviolet;*/
+}
+
+#menu-bar li {
+  display: inline;
+  float: left;
+  /* border-right: 1px solid #0026ff;
+  border-left: 1px solid #0026ff;
+  */
+}
+
+#menu-bar a {
+  display: block;
+  padding: 8px;
+  color: #ffffff;
+  /*remove underline*/
+  text-decoration: none;
+  /* background-color: #dddddd; */
+}
+
+#menu-bar a:hover {
+  color: #d9ff009c;
+  background-color: #0000005b;
+}
+
+* {
+  text-align: center;
+  background-color: transparent;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px #0026ff, 5px 5px 7px #000000;
+  /*  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgba(0, 0, 255, 0.767), 0 0 5px rgba(0, 0, 139, 0.822);*/
+}
+
+
+body {
+  background-image: url("../backgrounds/3.jpg");
+  background-size: cover;
+}
+
+#content {
+  background-color: rgba(245, 245, 245, 0.253);
+}
+
+#flash-messages {
+  background-color: rgba(245, 245, 245, 0.253);
+}
+
+input {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px #0026ff, 5px 5px 7px #000000;
+}
+
+/* unvisited link */
+a:link {
+  color: #00e1fffd;
+}
+
+/* visited link */
+a:visited {
+  color: rgba(0, 0, 0, 0.664);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(0, 255, 98);
+}
+
+/* selected link */
+a:active {
+  color: rgb(255, 0, 234);
+}
+
+#board-list {}
+
+#board-list li {
+  /*remove bullets*/
+  list-style-type: none;
+  /* border: 2px solid rgba(0, 0, 0, 0.459); */
+
+}
+
+
+
+/*thread posts*/
+#thread-posts {}
+
+#thread-posts ul {
+  list-style-type: circle;
+  /*or none*/
+  border: 2px solid rgba(0, 0, 0, 0.137);
+
+}
+
+#thread-posts li {
+  border: 2px solid rgba(0, 0, 0, 0.459);
+}
+
+#boards-table {
+  margin: auto;
+
+}
+
+#boards-table tr:hover {
+  background-color: #00000023;
+}

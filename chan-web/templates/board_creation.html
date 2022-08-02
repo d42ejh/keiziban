@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Board Creation{% endblock %}
+
+{% block content %}
+Create New Board
+<form action="/board_creation" method="post">
+    <label for="id">Board Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="password">Board Description:</label><br>
+    <input type="text" id="description" name="description"><br>
+    <input type="submit" value="Create New Board">
+</form>
+{% endblock %}

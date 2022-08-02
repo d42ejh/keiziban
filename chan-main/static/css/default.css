@@ -1,0 +1,27 @@
+#menu-bar{
+    background-color: #20202000
+}
+body{
+    background-color: black;
+    color:cyan;
+}
+
+ /* unvisited link */
+ a:link {
+    color: rgb(0, 255, 0);
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: rgb(255, 0, 255);
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  } 

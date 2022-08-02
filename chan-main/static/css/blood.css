@@ -1,0 +1,28 @@
+#menu-bar {
+  background-color: #00000000
+}
+
+body {
+  background-color: black;
+  color: rgb(255, 0, 0);
+}
+
+/* unvisited link */
+a:link {
+  color: rgb(202, 0, 0);
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(255, 0, 255);
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
