@@ -1,0 +1,8 @@
+-- Your SQL goes here
+CREATE TABLE boards(
+primary_key SERIAL PRIMARY KEY,
+uuid UUID UNIQUE NOT NULL,
+created_at TIMESTAMPTZ NOT NULL,
+name VARCHAR (100) NOT NULL,
+description VARCHAR(65535) NOT NULL
+)
