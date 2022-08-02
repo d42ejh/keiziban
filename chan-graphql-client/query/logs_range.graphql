@@ -1,0 +1,8 @@
+query LogsRange($start: Int,$end:Int){
+  logs(start:$start,end:$end){
+      timestamp,
+      message,
+      link,
+      linkTitle
+  }
+}

@@ -1,0 +1,4 @@
+ mutation RemoveThread($thread_uuid: UUID!) {
+  removeThread(threadUuid:$thread_uuid)
+}
+

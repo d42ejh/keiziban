@@ -1,0 +1,154 @@
+schema {
+  query: QueryRoot
+  mutation: MutationRoot
+}
+
+type Board {
+  uuid: UUID!
+  createdAt: DateTime!
+  name: String!
+  description: String!
+}
+
+type BoardConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [BoardEdge]
+}
+
+# An edge in a connection.
+type BoardEdge {
+  # The item at the end of the edge
+  node: Board!
+
+  # A cursor for use in pagination
+  cursor: String!
+}
+
+# Implement the DateTime<Utc> scalar
+#
+# The input/output is a string in RFC3339 format.
+scalar DateTime
+
+type Log {
+  timestamp: DateTime!
+  message: String!
+  link: String
+  linkTitle: String
+}
+
+type MutationRoot {
+  signUp(password: String!): User!
+  login(userId: String!, password: String!): String!
+
+  # Create a new board.
+  # Returns new board's id.
+  # TODO: maybe return error when indexing is failed(also delete the created board)
+  createThread(
+    threadTitle: String!
+    parentBoardUuid: UUID!
+    firstPostText: String!
+  ): UUID!
+
+  # Only for admin and moderator
+  removeThread(threadUuid: UUID!): Int!
+  postThreadpost(threadUuid: UUID!, postBody: String!): UUID!
+
+  # Only for admin and moderator
+  removeThreadpost(threadpostUuid: UUID!): Int!
+
+  # Only for admin
+  # Return value is dummy
+  changeUserType(userId: String!, newType: Int!): Int!
+}
+
+# Information about pagination in a connection
+type PageInfo {
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type QueryRoot {
+  # SystemInfo
+  systemInfo: SystemInfo!
+
+  # Find user by ID.
+  user(userId: String!): User
+
+  # Find board by ID.
+  board(boardId: UUID!): Board
+  boards(after: String, before: String, first: Int, last: Int): BoardConnection!
+  boardsByKeyword(searchKeyword: String!): [Board!]!
+  threads(boardId: UUID!): [Thread!]!
+
+  # Find thread by ID.
+  thread(threadId: UUID!): Thread
+  threadpostsByThreadId(
+    parentThreadId: UUID!
+    start: Int
+    end: Int
+  ): [ThreadPost!]!
+  logs(start: Int, end: Int): [Log!]!
+  searchTopK(
+    keyword: String!
+    k: Int!
+    searchThread: Boolean!
+    searchThreadpost: Boolean!
+  ): [SearchResult!]!
+}
+
+type SearchResult {
+  objectType: String!
+  uuid: UUID!
+  score: Float
+}
+
+type SystemInfo {
+  totalMemAvailable: Int!
+  freeMem: Int!
+}
+
+type Thread {
+  uuid: UUID!
+  createdAt: DateTime!
+  parentBoardId: UUID!
+  title: String!
+  creatorUserId: String!
+}
+
+type ThreadPost {
+  uuid: UUID!
+  number: Int!
+  postedAt: DateTime!
+  posterUserId: String!
+  parentThreadId: UUID!
+  bodyText: String!
+}
+
+# A UUID is a unique 128-bit number, stored as 16 octets. UUIDs are parsed as Strings
+# within GraphQL. UUIDs are used to assign unique identifiers to entities without requiring a central
+# allocating authority.
+#
+# # References
+#
+# * [Wikipedia: Universally Unique Identifier](http://en.wikipedia.org/wiki/Universally_unique_identifier)
+# * [RFC4122: A Universally Unique IDentifier (UUID) URN Namespace](http://tools.ietf.org/html/rfc4122)
+scalar UUID
+
+type User {
+  id: String!
+  registeredAt: DateTime!
+  userType: Int!
+  userStatus: Int!
+}

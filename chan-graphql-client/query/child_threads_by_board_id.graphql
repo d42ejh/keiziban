@@ -1,0 +1,8 @@
+query ChildThreadsByBoardId($board_id: UUID!){
+  threads(boardId: $board_id){
+      title,
+      uuid,
+      createdAt,
+      creatorUserId
+  }
+}

@@ -1,0 +1,3 @@
+mutation CreateThread($thread_title: String!,$parent_board_uuid:UUID!,$first_post_text:String!) {
+  createThread(threadTitle:$thread_title,parentBoardUuid:$parent_board_uuid,firstPostText:$first_post_text)
+}

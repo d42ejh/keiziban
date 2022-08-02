@@ -1,0 +1,3 @@
+mutation CreateBoard($board_name: String!,$board_description:String!) {
+  createBoard(boardName:$board_name,boardDescription:$board_description)
+}

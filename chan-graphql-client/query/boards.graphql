@@ -1,0 +1,12 @@
+query Boards($after: String,$before: String,$first: Int,$last: Int){
+  boards(after: $after,before: $before,first: $first,last: $last){
+    edges{
+      node{
+           name,
+      uuid,
+      createdAt,
+      description
+      }
+    }
+  }
+}

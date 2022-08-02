@@ -1,0 +1,3 @@
+mutation ChangeUserType($user_id: String!,$user_type:Int!) {
+  changeUserType(userId:$user_id, userType:$user_type)
+}

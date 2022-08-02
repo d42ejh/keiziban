@@ -1,0 +1,7 @@
+query SearchTopK($search_keyword:String!,$k:Int!,$search_thread:Boolean!,$search_threadpost:Boolean!){
+  searchTopK(keyword:$search_keyword,k:$k,searchThread:$search_thread,searchThreadpost:$search_threadpost){
+    score,
+    uuid,
+    objectType
+  }
+}

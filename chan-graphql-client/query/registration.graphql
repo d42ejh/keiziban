@@ -1,0 +1,9 @@
+mutation RegisterAccount($password: String!) {
+  signUp(password:$password){
+    registeredAt,
+      id,
+      userType,
+      userStatus 
+  }
+}
+

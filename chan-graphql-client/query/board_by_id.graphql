@@ -1,0 +1,8 @@
+query BoardById($board_id: UUID!){
+  board(boardId: $board_id){
+      name,
+      uuid,
+      createdAt,
+      description
+  }
+}

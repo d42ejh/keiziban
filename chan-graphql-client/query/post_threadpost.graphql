@@ -1,0 +1,4 @@
+ mutation PostThreadPost($thread_uuid: UUID!,$post_body:String!) {
+  postThreadpost(threadUuid:$thread_uuid,postBody:$post_body)
+}
+

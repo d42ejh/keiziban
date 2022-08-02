@@ -1,0 +1,9 @@
+query ThreadPostsRange($parent_thread_id: UUID!,$start: Int,$end:Int){
+  threadpostsByThreadId(parentThreadId: $parent_thread_id,start:$start,end:$end){
+      uuid,
+      number,
+      postedAt,
+      posterUserId,
+      bodyText
+  }
+}

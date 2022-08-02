@@ -1,0 +1,8 @@
+query ThreadById($thread_id: UUID!){
+  thread(threadId: $thread_id){
+      title,
+      uuid,
+      createdAt,
+      creatorUserId
+  }
+}

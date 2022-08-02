@@ -1,0 +1,8 @@
+[workspace]
+members = [
+   "chan-core",
+   "chan-web",
+   "chan-main",
+   "chan-graphql-client",
+   "db-init"
+]

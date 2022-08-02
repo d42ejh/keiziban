@@ -1,0 +1,8 @@
+query UserById($user_id: String!){
+  user(userId: $user_id){
+      registeredAt,
+      id,
+      userType,
+      userStatus 
+  }
+}

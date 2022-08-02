@@ -1,0 +1,4 @@
+ mutation RemoveThreadPost($threadpost_uuid: UUID!) {
+  removeThreadpost(threadpostUuid:$threadpost_uuid)
+}
+
